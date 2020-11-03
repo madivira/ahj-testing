@@ -1,6 +1,5 @@
 import puppetteer from 'puppeteer';
 import { fork } from 'child_process';
-import { format } from 'path';
 
 jest.setTimeout(60000); // default puppeteer timeout
 
@@ -37,7 +36,7 @@ describe('Credit Card Validator form', () => {
   test('valid', async () => {
     await page.goto(baseUrl);
     const form = await page.$('[data-widget="card-num-form"]');
-    const input = await form.$('[data-id="card-input"]')
+    const input = await form.$('[data-id="card-input"]');
     await input.type('4276550011117820');
     const button = await page.$('[data-id="card-button"]');
     button.click();
@@ -46,7 +45,7 @@ describe('Credit Card Validator form', () => {
   test('novalid', async () => {
     await page.goto(baseUrl);
     const form = await page.$('[data-widget="card-num-form"]');
-    const input = await form.$('[data-id="card-input"]')
+    const input = await form.$('[data-id="card-input"]');
     await input.type('4286550011117820');
     const button = await page.$('[data-id="card-button"]');
     button.click();
@@ -55,7 +54,7 @@ describe('Credit Card Validator form', () => {
   test('novalid', async () => {
     await page.goto(baseUrl);
     const form = await page.$('[data-widget="card-num-form"]');
-    const input = await form.$('[data-id="card-input"]')
+    const input = await form.$('[data-id="card-input"]');
     await input.type('42aa550011117820');
     const button = await page.$('[data-id="card-button"]');
     button.click();
